@@ -191,7 +191,8 @@ const formatDuration = (hours) => {
 
                         <button @click="deleteCharacter(chara.id)"
                             class="bg-rose-500 px-5 py-1 rounded-md">Hapus</button>
-                        <button class="bg-orange-500 px-5 py-1 rounded-md">Edit</button>
+                        <button class="bg-orange-500 px-5 py-1 rounded-md"
+                            @click="router.push(`/albion/edit/${chara.id}`)">Edit</button>
                     </div>
                 </div>
             </div>
