@@ -1,10 +1,24 @@
 <script setup>
 import InputForm from '@/components/ui/InputForm.vue';
+import SelectForm from '@/components/ui/SelectForm.vue';
 import { onMounted, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 const characters = ref([]);
 const router = useRouter();
+
+const serverOptions = [
+    { value: 'europe', text: 'Albion Europe (Europe)' },
+    { value: 'west', text: 'Albion West (Global)' },
+    { value: 'east', text: 'Albion East (Asia)' },
+];
+
+const refiningOptions = [
+    { value: 'plank', text: 'Plank' },
+    { value: 'steel', text: 'Steel' },
+    { value: 'cloth', text: 'Cloth' },
+    { value: 'leather', text: 'Leather' },
+];
 
 const loadCharacters = () => {
     const stored = localStorage.getItem('albionFocusCharacters');
@@ -124,10 +138,11 @@ const handleAddCharacter = () => {
                 v-model="newCharacterName" :error-message="newCharacterNameError" />
             <InputForm label="Email Character" type="email" placeholder="Masukkan Email Karakter"
                 v-model="newCharacterEmail" :error-message="newCharacterEmailError" />
-            <InputForm label="Server Character" type="text" placeholder="Masukkan Server Karakter"
-                v-model="newCharacterServer" :error-message="newCharacterServerError" />
-            <InputForm label="Refining Character" type="text" placeholder="Masukkan Refining Karakter"
-                v-model="newCharacterRefining" :error-message="newCharacterRefiningError" />
+            <SelectForm :options="serverOptions" v-model="newCharacterServer" :error-message="newCharacterServerError"
+                label="Pilih Server Karakter" placeholder="Pilih server..." :hasError="!!newCharacterServerError" />
+            <SelectForm :options="refiningOptions" v-model="newCharacterRefining"
+                :error-message="newCharacterRefiningError" label="Pilih Refining Karakter"
+                placeholder="Pilih refining..." :hasError="!!newCharacterRefiningError" />
             <div class="flex flex-col gap-2">
                 <label>Focus saat ini</label>
                 <input type="number" v-model="newCharacterFocus" placeholder="Masukkan Focus saat ini"
