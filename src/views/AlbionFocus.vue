@@ -160,7 +160,8 @@ const formatDuration = (hours) => {
                     class="mb-4 p-4 border border-gray-700 rounded-lg bg-gray-800 flex flex-col justify-between">
                     <div class="flex flex-col gap-2">
                         <h3 class="text-xl font-semibold text-yellow-400">
-                            {{ chara.username }} | {{ chara.email }} | {{ chara.refine }}
+                            {{ chara.username }} | {{ chara.email }} | {{ chara.refine.toUpperCase() }} | {{
+                                chara.server.toUpperCase() }}
                         </h3>
 
                         <p class="text-lg text-white">
