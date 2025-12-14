@@ -1,6 +1,7 @@
 import NotFoundView from '@/views/NotFoundView.vue';
 import AlbionFocusView from '@/views/AlbionFocus.vue';
 import AddCharactersAlbionView from '@/views/AddCharactersAlbion.vue';
+import EditCharactersAlbionView from '@/views/EditCharactersAlbion.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
@@ -13,6 +14,11 @@ const routes = [
     path: '/albion/add',
     name: 'AddCharactersAlbion',
     component: AddCharactersAlbionView
+  },
+  {
+    path: '/albion/edit/:id',
+    name: 'EditCharactersAlbion',
+    component: EditCharactersAlbionView
   },
   {
     path: '/:pathMatch(.*)*',

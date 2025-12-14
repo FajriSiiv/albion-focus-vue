@@ -126,7 +126,7 @@ const handleAddCharacter = () => {
 <template>
     <div class="flex flex-col justify-center items-center h-screen">
         <button class="absolute top-5 left-5 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-            @click="router.push('/albion')">Kembali</button>
+            @click="router.push('/')">Kembali</button>
 
         <form @submit.prevent="handleAddCharacter"
             class="flex flex-col gap-2 border-gray-300 border-2 rounded-md p-4 min-w-[500px]">
